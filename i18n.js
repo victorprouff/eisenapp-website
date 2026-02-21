@@ -27,9 +27,13 @@ const translations = {
     "download.unsigned_windows": "On Windows: click \"More info\" then \"Run anyway\" in the SmartScreen dialog.",
     "support.title": "Support the project",
     "support.desc": "EisenApp is and will always be free. If it's useful to you, you can support its development.",
-    "support.btn": "Buy me a coffee",
+    "support.btn": "🍫 Buy me a hot chocolate",
     "footer.source": "Source code on GitHub",
     "footer.license": "MIT License",
+    "modal.title": "Enjoying EisenApp?",
+    "modal.desc": "EisenApp is free and always will be. If it saves you time, a hot chocolate goes a long way!",
+    "modal.support": "🍫 Support the project",
+    "modal.skip": "Just download",
   },
   fr: {
     "nav.github": "GitHub",
@@ -59,9 +63,13 @@ const translations = {
     "download.unsigned_windows": "Sur Windows : cliquez \"Plus d'informations\" puis \"Exécuter quand même\" dans SmartScreen.",
     "support.title": "Soutenir le projet",
     "support.desc": "EisenApp est et restera toujours gratuit. S'il vous est utile, vous pouvez soutenir son développement.",
-    "support.btn": "Offrir un café",
+    "support.btn": "🍫 Offrir un chocolat chaud",
     "footer.source": "Code source sur GitHub",
     "footer.license": "Licence MIT",
+    "modal.title": "EisenApp vous plaît ?",
+    "modal.desc": "EisenApp est gratuit et le restera toujours. Si ça vous fait gagner du temps, un petit chocolat chaud fait vraiment la différence !",
+    "modal.support": "🍫 Soutenir le projet",
+    "modal.skip": "Télécharger quand même",
   },
   es: {
     "nav.github": "GitHub",
@@ -91,9 +99,13 @@ const translations = {
     "download.unsigned_windows": "En Windows: haz clic en \"Más información\" y luego en \"Ejecutar de todos modos\" en SmartScreen.",
     "support.title": "Apoya el proyecto",
     "support.desc": "EisenApp es y siempre será gratuito. Si te resulta útil, puedes apoyar su desarrollo.",
-    "support.btn": "Invítame a un café",
+    "support.btn": "🍫 Invítame a un chocolate caliente",
     "footer.source": "Código fuente en GitHub",
     "footer.license": "Licencia MIT",
+    "modal.title": "¿Te gusta EisenApp?",
+    "modal.desc": "EisenApp es gratuito y siempre lo será. Si te ahorra tiempo, ¡un chocolate caliente ayuda mucho!",
+    "modal.support": "🍫 Apoya el proyecto",
+    "modal.skip": "Solo descargar",
   },
   de: {
     "nav.github": "GitHub",
@@ -123,9 +135,13 @@ const translations = {
     "download.unsigned_windows": "Auf Windows: Klicke auf \"Weitere Informationen\" und dann auf \"Trotzdem ausführen\" im SmartScreen-Dialog.",
     "support.title": "Projekt unterstützen",
     "support.desc": "EisenApp ist und bleibt kostenlos. Wenn es dir nützlich ist, kannst du die Entwicklung unterstützen.",
-    "support.btn": "Kauf mir einen Kaffee",
+    "support.btn": "🍫 Kauf mir eine heiße Schokolade",
     "footer.source": "Quellcode auf GitHub",
     "footer.license": "MIT-Lizenz",
+    "modal.title": "Gefällt dir EisenApp?",
+    "modal.desc": "EisenApp ist kostenlos und wird es immer sein. Wenn es dir Zeit spart, hilft eine heiße Schokolade wirklich!",
+    "modal.support": "🍫 Projekt unterstützen",
+    "modal.skip": "Einfach herunterladen",
   },
 };
 
@@ -158,4 +174,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const select = document.querySelector(".lang-select");
   if (select) select.addEventListener("change", () => applyTranslations(select.value));
+
+  // Download modal
+  const modal = document.getElementById("download-modal");
+  const modalClose = document.getElementById("modal-close");
+  const modalDownload = document.getElementById("modal-download");
+  let pendingUrl = null;
+
+  function openModal(url) {
+    pendingUrl = url;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    pendingUrl = null;
+  }
+
+  document.querySelectorAll(".platform-card").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal(card.href);
+    });
+  });
+
+  modalClose.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  modalDownload.addEventListener("click", () => {
+    if (pendingUrl) window.open(pendingUrl, "_blank", "noopener");
+    closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+  });
 });
