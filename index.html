@@ -19,10 +19,12 @@
       </div>
       <div class="nav-right">
         <a href="https://github.com/victorprouff/eisenapp" class="nav-link" data-i18n="nav.github" target="_blank" rel="noopener">GitHub</a>
-        <div class="lang-switcher">
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="fr">FR</button>
-        </div>
+        <select class="lang-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+        </select>
       </div>
     </div>
   </nav>
@@ -31,7 +33,7 @@
   <section class="hero">
     <div class="container">
       <div class="hero-text">
-        <img src="icon.png" alt="EisenApp logo" class="hero-logo" />
+        <!-- <img src="icon.png" alt="EisenApp logo" class="hero-logo" /> -->
         <h1 data-i18n="hero.title">Prioritize what matters.</h1>
         <p class="lead" data-i18n="hero.subtitle">A clean, offline-first task manager built on the Eisenhower Matrix. Free and open source.</p>
         <a href="#download" class="btn-primary" data-i18n="hero.cta">Download — Free</a>
@@ -39,7 +41,7 @@
 
       <!-- App preview -->
       <div class="app-mockup">
-        <img src="illustration.png" alt="EisenApp demo" class="app-gif" />
+        <img src="illustration_light.png" alt="EisenApp demo" class="app-gif" />
       </div>
     </div>
   </section>

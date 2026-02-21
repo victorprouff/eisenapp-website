@@ -63,6 +63,70 @@ const translations = {
     "footer.source": "Code source sur GitHub",
     "footer.license": "Licence MIT",
   },
+  es: {
+    "nav.github": "GitHub",
+    "hero.title": "Prioriza lo que importa.",
+    "hero.subtitle": "Un gestor de tareas limpio, basado en la Matriz de Eisenhower. Gratis y código abierto.",
+    "hero.cta": "Descargar — Gratis",
+    "features.title": "Simple. Enfocado. Tuyo.",
+    "features.matrix.title": "Matriz de Eisenhower",
+    "features.matrix.desc": "Organiza tus tareas en 4 cuadrantes para centrarte siempre en lo que realmente importa.",
+    "features.offline.title": "100% sin conexión",
+    "features.offline.desc": "Sin cuenta, sin servidor, sin suscripción. Tus tareas se almacenan localmente.",
+    "features.open.title": "Código abierto",
+    "features.open.desc": "Licencia MIT. Libre de usar, inspeccionar y modificar. Sin costes ocultos.",
+    "features.multilang.title": "Multilingüe",
+    "features.multilang.desc": "Disponible en inglés, francés, español y alemán. Cambia de idioma con un clic.",
+    "download.title": "Descargar EisenApp",
+    "download.subtitle": "Disponible para macOS, Windows y Linux.",
+    "download.macos_arm": "macOS Apple Silicon",
+    "download.macos_intel": "macOS Intel",
+    "download.windows": "Windows",
+    "download.linux": "Linux",
+    "download.dmg": ".dmg",
+    "download.exe": ".exe",
+    "download.appimage": ".AppImage",
+    "download.unsigned_title": "La aplicación no está firmada",
+    "download.unsigned_macos": "En macOS: clic derecho en la app → Abrir, o ejecuta <code>xattr -cr \"/Applications/EisenApp.app\"</code> en Terminal.",
+    "download.unsigned_windows": "En Windows: haz clic en \"Más información\" y luego en \"Ejecutar de todos modos\" en SmartScreen.",
+    "support.title": "Apoya el proyecto",
+    "support.desc": "EisenApp es y siempre será gratuito. Si te resulta útil, puedes apoyar su desarrollo.",
+    "support.btn": "Invítame a un café",
+    "footer.source": "Código fuente en GitHub",
+    "footer.license": "Licencia MIT",
+  },
+  de: {
+    "nav.github": "GitHub",
+    "hero.title": "Priorisiere, was wirklich zählt.",
+    "hero.subtitle": "Ein klarer, offline-fähiger Aufgabenmanager basierend auf der Eisenhower-Matrix. Kostenlos und Open Source.",
+    "hero.cta": "Herunterladen — Kostenlos",
+    "features.title": "Einfach. Fokussiert. Deins.",
+    "features.matrix.title": "Eisenhower-Matrix",
+    "features.matrix.desc": "Organisiere Aufgaben in 4 Quadranten, um dich immer auf das Wesentliche zu konzentrieren.",
+    "features.offline.title": "Vollständig offline",
+    "features.offline.desc": "Kein Konto, kein Server, kein Abo. Deine Aufgaben werden lokal gespeichert.",
+    "features.open.title": "Open Source",
+    "features.open.desc": "MIT-Lizenz. Kostenlos nutzbar, einsehbar und modifizierbar. Keine versteckten Kosten.",
+    "features.multilang.title": "Mehrsprachig",
+    "features.multilang.desc": "Verfügbar auf Englisch, Französisch, Spanisch und Deutsch. Sprache mit einem Klick wechseln.",
+    "download.title": "EisenApp herunterladen",
+    "download.subtitle": "Verfügbar für macOS, Windows und Linux.",
+    "download.macos_arm": "macOS Apple Silicon",
+    "download.macos_intel": "macOS Intel",
+    "download.windows": "Windows",
+    "download.linux": "Linux",
+    "download.dmg": ".dmg",
+    "download.exe": ".exe",
+    "download.appimage": ".AppImage",
+    "download.unsigned_title": "Die App ist nicht signiert",
+    "download.unsigned_macos": "Auf macOS: Rechtsklick auf die App → Öffnen, oder führe <code>xattr -cr \"/Applications/EisenApp.app\"</code> im Terminal aus.",
+    "download.unsigned_windows": "Auf Windows: Klicke auf \"Weitere Informationen\" und dann auf \"Trotzdem ausführen\" im SmartScreen-Dialog.",
+    "support.title": "Projekt unterstützen",
+    "support.desc": "EisenApp ist und bleibt kostenlos. Wenn es dir nützlich ist, kannst du die Entwicklung unterstützen.",
+    "support.btn": "Kauf mir einen Kaffee",
+    "footer.source": "Quellcode auf GitHub",
+    "footer.license": "MIT-Lizenz",
+  },
 };
 
 let currentLang = "en";
@@ -85,15 +149,13 @@ function applyTranslations(lang) {
     if (value !== undefined) el.innerHTML = value;
   });
 
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
+  const select = document.querySelector(".lang-select");
+  if (select) select.value = lang;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   applyTranslations(detectLang());
 
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.addEventListener("click", () => applyTranslations(btn.dataset.lang));
-  });
+  const select = document.querySelector(".lang-select");
+  if (select) select.addEventListener("change", () => applyTranslations(select.value));
 });
