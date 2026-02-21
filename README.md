@@ -1,0 +1,12 @@
+- [x] Le bouton télécharger envoie en bas pour choisir l'OS
+- [x] CI cassé pour créer les liens
+- [x] Langues dans un selecteur. Rajouter Allemand et Espagnol
+- [x] Le gif au dessus de Simples. Focalisé. A vous.
+- [x] Proposer de me soutenir avec un chocolat
+- [ ] Déploiement en ligne
+- [ ] Ajout d'un thème sombre
+- [ ] Le logo de Linux est dégueulasse.
+- [ ] Proposer fichier .deb et appimage pour Linux
+- [ ] Faire remonter les bugs en connectant au Issues de Github depuis un formulaire sur le site
+- [ ] Modale avant de télécharger pour afficher proposition de soutenir le projet
+- [ ] Faire une ou deux vidéos de présentation. Les afficher en carouselle. Pouvoir cliquer dessus pour les agrandir et les voir en plus grand.
