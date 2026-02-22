@@ -20,7 +20,7 @@
         <span>EisenApp</span>
       </div>
       <div class="nav-right">
-        <a href="https://github.com/victorprouff/eisenapp" class="nav-link" data-i18n="nav.github" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/victorprouff/eisenapp" class="nav-link" data-i18n="nav.github" target="_blank" rel="noopener" data-umami-event="nav-github">GitHub</a>
         <select class="lang-select" aria-label="Language">
           <option value="en">English</option>
           <option value="fr">Français</option>
@@ -160,14 +160,14 @@
       <h2 data-i18n="support.title">Support the project</h2>
       <p data-i18n="support.desc">EisenApp is and will always be free. If it's useful to you, you can support its development.</p>
       <!-- Replace # with your Ko-fi or Buy Me a Coffee link -->
-      <a href="https://ko-fi.com/I2I71UO9CQ" class="btn-secondary" id="offer-coffe" data-umami-event="offer-coffe" onclick="umami.track('Offer Coffe', { etape: 'direct' })"><span data-i18n="support.btn">Buy me a coffee</span></a>
+      <a href="https://ko-fi.com/I2I71UO9CQ" class="btn-secondary" id="offer-coffe" data-umami-event="offer-coffe-direct"><span data-i18n="support.btn">Buy me a coffee</span></a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <a href="https://github.com/victorprouff/eisenapp" target="_blank" rel="noopener" data-i18n="footer.source">Source code on GitHub</a>
+      <a href="https://github.com/victorprouff/eisenapp" target="_blank" rel="noopener" data-i18n="footer.source" data-umami-event="footer-source">Source code on GitHub</a>
       <span data-i18n="footer.license">MIT License</span>
     </div>
   </footer>
@@ -180,7 +180,7 @@
       <h2 class="modal-title" data-i18n="modal.title">Enjoying EisenApp?</h2>
       <p class="modal-desc" data-i18n="modal.desc">EisenApp is free and always will be. If it saves you time, a small coffee goes a long way!</p>
       <div class="modal-actions">
-        <a href="https://ko-fi.com/I2I71UO9CQ" class="btn-primary modal-support" target="_blank" rel="noopener" data-i18n="modal.support" onclick="umami.track('Offer Coffe', { etape: 'modal' })">☕ Support the project</a>
+        <a href="https://ko-fi.com/I2I71UO9CQ" class="btn-primary modal-support" target="_blank" rel="noopener" data-i18n="modal.support" data-umami-event="offer-coffe-modal">☕ Support the project</a>
         <button class="modal-skip" id="modal-download" data-i18n="modal.skip">Just download</button>
       </div>
     </div>
