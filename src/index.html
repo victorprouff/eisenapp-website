@@ -14,13 +14,13 @@
     // Attend que Umami soit chargé avant d'ajouter les écouteurs
     document.addEventListener('DOMContentLoaded', function() {
       // Fonction pour tracker un téléchargement
-      function trackDownload(event, platform, version) {
+      function addTrack(event, platform, version) {
         // Empêche le comportement par défaut pour que Umami ait le temps de tracker
         event.preventDefault();
         
         // Track l'événement avec Umami
         if (typeof umami !== 'undefined') {
-          umami.track(`download-${platform}`, { version: version });
+          umami.track(`${platform}`, { version: version });
         }
 
         // Redirige après un petit délai pour s'assurer que le track est envoyé
@@ -31,19 +31,23 @@
 
       // Ajoute les écouteurs sur les liens de téléchargement
       document.getElementById('download-macos_arm').addEventListener('click', function(e) {
-        trackDownload(e, 'macos_arm', 'EisenApp_aarch64.dmg');
+        addTrack(e, 'download-macos_arm', 'EisenApp_aarch64.dmg');
       });
 
       document.getElementById('download-macos_intel').addEventListener('click', function(e) {
-        trackDownload(e, 'macos_intel', 'EisenApp_x64.dmg');
+        addTrack(e, 'download-macos_intel', 'EisenApp_x64.dmg');
       });
 
       document.getElementById('download-windows').addEventListener('click', function(e) {
-        trackDownload(e, 'windows', 'EisenApp_x64-setup.exe');
+        addTrack(e, 'download-windows', 'EisenApp_x64-setup.exe');
       });
 
       document.getElementById('download-linux').addEventListener('click', function(e) {
-        trackDownload(e, 'linux', 'EisenApp_amd64.AppImage');
+        addTrack(e, 'download-linux', 'EisenApp_amd64.AppImage');
+      });
+
+      document.getElementById('offer-coffee').addEventListener('click', function(e) {
+        addTrack(e, 'offer-coffee', 'EisenApp_Coffee');
       });
     });
   </script>
@@ -199,7 +203,7 @@
       <h2 data-i18n="support.title">Support the project</h2>
       <p data-i18n="support.desc">EisenApp is and will always be free. If it's useful to you, you can support its development.</p>
       <!-- Replace # with your Ko-fi or Buy Me a Coffee link -->
-      <a href="https://ko-fi.com/I2I71UO9CQ" class="btn-secondary"><span data-i18n="support.btn">Buy me a coffee</span></a>
+      <a href="https://ko-fi.com/I2I71UO9CQ" class="btn-secondary" id="offer-coffe" data-umami-event="offer-coffe" onclick="umami.track('Test-Offer Coffe', { version: '1.0', platform: 'test' })"><span data-i18n="support.btn">Buy me a coffee</span></a>
     </div>
   </section>
 
