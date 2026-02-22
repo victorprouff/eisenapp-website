@@ -15,10 +15,10 @@
         defaults: '2026-01-30'
     })
 
-    posthog.capture('download-macos_arm', { property: 'value' })
-    posthog.capture('download-macos_intel', { property: 'value' })
-    posthog.capture('download-windows', { property: 'value' })
-    posthog.capture('download-linux', { property: 'value' })
+    posthog.capture('download-macos_arm', { type: 'macos_arm' })
+    posthog.capture('download-macos_intel', { type: 'macos_intel' })
+    posthog.capture('download-windows', { type: 'windows' })
+    posthog.capture('download-linux', { type: 'linux' })
   </script>
 </head>
 <body>
