@@ -236,24 +236,29 @@ nav {
   border-radius: 14px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 12px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06);
   overflow: hidden;
+  display: grid;
+  aspect-ratio: 1820 / 1215;
 }
 
 .carousel-slide {
-  display: none;
+  grid-area: 1 / 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-slide.active {
-  display: block;
-  animation: carousel-fade 0.4s ease;
-}
-
-@keyframes carousel-fade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  visibility: visible;
+  opacity: 1;
 }
 
 .carousel-slide img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -370,6 +375,9 @@ nav {
 /* ── Download ── */
 .download {
   padding: 80px 0;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .platform-grid {
@@ -388,7 +396,7 @@ nav {
   padding: 28px 16px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  background: var(--bg-card);
+  background: var(--bg);
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
@@ -456,9 +464,6 @@ nav {
 /* ── Support ── */
 .support {
   padding: 80px 0;
-  background: var(--bg-card);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   text-align: center;
 }
 

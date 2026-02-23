@@ -265,22 +265,11 @@
         dots[current].classList.add('active');
       }
 
-      function startAuto() {
-        timer = setInterval(function () { goTo(current + 1); }, 4000);
-      }
-
-      function resetAuto() {
-        clearInterval(timer);
-        startAuto();
-      }
-
-      document.querySelector('.carousel-next').addEventListener('click', function () { goTo(current + 1); resetAuto(); });
-      document.querySelector('.carousel-prev').addEventListener('click', function () { goTo(current - 1); resetAuto(); });
+      document.querySelector('.carousel-next').addEventListener('click', function () { goTo(current + 1); });
+      document.querySelector('.carousel-prev').addEventListener('click', function () { goTo(current - 1); });
       dots.forEach(function (dot, i) {
-        dot.addEventListener('click', function () { goTo(i); resetAuto(); });
+        dot.addEventListener('click', function () { goTo(i); });
       });
-
-      startAuto();
     })();
   </script>
 </body>
