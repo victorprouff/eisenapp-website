@@ -95,10 +95,33 @@
     </div>
   </section>
   
-  <!-- Demo GIF -->
+  <!-- Demo Carousel -->
   <section class="demo">
     <div class="container">
-      <img src="presentation.gif" alt="EisenApp demo" class="demo-gif" />
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide active">
+            <img src="illustration_light.webp" alt="EisenApp demo" />
+          </div>
+          <div class="carousel-slide">
+            <img src="illustration_light_2.webp" alt="EisenApp demo" />
+          </div>
+          <div class="carousel-slide">
+            <img src="illustration_light_3.webp" alt="EisenApp demo" />
+          </div>
+          <div class="carousel-slide">
+            <img src="illustration_light_4.webp" alt="EisenApp demo" />
+          </div>
+        </div>
+        <button class="carousel-btn carousel-prev" aria-label="Previous">&#8249;</button>
+        <button class="carousel-btn carousel-next" aria-label="Next">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" aria-label="Slide 1"></button>
+          <button class="carousel-dot" aria-label="Slide 2"></button>
+          <button class="carousel-dot" aria-label="Slide 3"></button>
+          <button class="carousel-dot" aria-label="Slide 4"></button>
+        </div>
+      </div>
     </div>
   </section>
   
@@ -188,5 +211,38 @@
   </div>
 
   <script src="i18n.js"></script>
+  <script>
+    (function () {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      let current = 0;
+      let timer;
+
+      function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function startAuto() {
+        timer = setInterval(function () { goTo(current + 1); }, 4000);
+      }
+
+      function resetAuto() {
+        clearInterval(timer);
+        startAuto();
+      }
+
+      document.querySelector('.carousel-next').addEventListener('click', function () { goTo(current + 1); resetAuto(); });
+      document.querySelector('.carousel-prev').addEventListener('click', function () { goTo(current - 1); resetAuto(); });
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); resetAuto(); });
+      });
+
+      startAuto();
+    })();
+  </script>
 </body>
 </html>
