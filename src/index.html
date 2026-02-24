@@ -143,7 +143,14 @@
   <section class="download" id="download">
     <div class="container">
       <h2 data-i18n="download.title">Download EisenApp</h2>
+      
+      <!-- Unsigned warning -->
       <p class="section-lead" data-i18n="download.subtitle">Available for macOS, Windows and Linux.</p>
+      <div class="unsigned-note">
+        <p>⚠ <span data-i18n="download.unsigned_title">The app is not signed</span></p>
+        <p data-i18n="download.unsigned_macos">On macOS: right-click the app → Open, or run <code>xattr -cr "/Applications/EisenApp.app"</code> in Terminal.</p>
+        <p data-i18n="download.unsigned_windows">On Windows: click "More info" then "Run anyway" in the SmartScreen dialog.</p>
+      </div>
       <div class="platform-grid">
 
         <!-- macOS Apple Silicon -->
@@ -181,13 +188,6 @@
           <span data-i18n="download.linux">Linux</span>
           <span class="platform-sub" data-i18n="download.appimage">.AppImage</span>
         </a>
-      </div>
-
-      <!-- Unsigned warning -->
-      <div class="unsigned-note">
-        <p>⚠ <span data-i18n="download.unsigned_title">The app is not signed</span></p>
-        <p data-i18n="download.unsigned_macos">On macOS: right-click the app → Open, or run <code>xattr -cr "/Applications/EisenApp.app"</code> in Terminal.</p>
-        <p data-i18n="download.unsigned_windows">On Windows: click "More info" then "Run anyway" in the SmartScreen dialog.</p>
       </div>
     </div>
   </section>

@@ -337,7 +337,7 @@ nav {
 
 .section-lead {
   color: var(--text-muted);
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 1.05rem;
 }
 
@@ -429,6 +429,7 @@ nav {
   border: 1px solid #fde68a;
   border-radius: var(--radius);
   padding: 20px 24px;
+  margin-bottom: 20px;
   transition: background-color 0.25s, border-color 0.25s;
 }
 
