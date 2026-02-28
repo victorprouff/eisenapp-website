@@ -177,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Download modal
   const modal = document.getElementById("download-modal");
+  const pageWrap = document.getElementById("page-wrap");
   const modalClose = document.getElementById("modal-close");
   const modalDownload = document.getElementById("modal-download");
   let pendingUrl = null;
@@ -203,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lastFocused = document.activeElement;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
+    pageWrap.setAttribute("aria-hidden", "true");
     modal.addEventListener("keydown", trapFocus);
     modalClose.focus();
   }
@@ -210,6 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeModal() {
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
+    pageWrap.removeAttribute("aria-hidden");
     modal.removeEventListener("keydown", trapFocus);
     pendingUrl = null;
     if (lastFocused) lastFocused.focus();

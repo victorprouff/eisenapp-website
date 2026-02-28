@@ -63,6 +63,7 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <img src="https://cloud.umami.is/p/ETjlxFFVu" alt="" aria-hidden="true">
+  <div id="page-wrap">
   <!-- Nav -->
   <nav>
     <div class="nav-inner">
@@ -71,7 +72,7 @@
         <span>EisenApp</span>
       </div>
       <div class="nav-right">
-        <a href="https://github.com/victorprouff/eisenapp" class="nav-link" data-i18n="nav.github" target="_blank" rel="noopener" data-umami-event="nav-github">GitHub</a>
+        <a href="https://github.com/victorprouff/eisenapp" class="nav-link" target="_blank" rel="noopener" data-umami-event="nav-github"><span data-i18n="nav.github">GitHub</span><span class="sr-only"> (opens in new tab)</span></a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
           <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -245,10 +246,12 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <a href="https://github.com/victorprouff/eisenapp" target="_blank" rel="noopener" data-i18n="footer.source" data-umami-event="footer-source">Source code on GitHub</a>
+      <a href="https://github.com/victorprouff/eisenapp" target="_blank" rel="noopener" data-umami-event="footer-source"><span data-i18n="footer.source">Source code on GitHub</span><span class="sr-only"> (opens in new tab)</span></a>
       <span data-i18n="footer.license">MIT License</span>
     </div>
   </footer>
+
+  </div><!-- /page-wrap -->
 
   <!-- Download Modal -->
   <div id="download-modal" class="modal-overlay" aria-hidden="true">
@@ -258,7 +261,7 @@
       <h2 class="modal-title" id="modal-title" data-i18n="modal.title">Enjoying EisenApp?</h2>
       <p class="modal-desc" data-i18n="modal.desc">EisenApp is free and always will be. If it saves you time, a small coffee goes a long way!</p>
       <div class="modal-actions">
-        <a href="https://ko-fi.com/I2I71UO9CQ" class="btn-primary modal-support" target="_blank" rel="noopener" data-i18n="modal.support" data-umami-event="offer-coffe-modal">☕ Support the project</a>
+        <a href="https://ko-fi.com/I2I71UO9CQ" class="btn-primary modal-support" target="_blank" rel="noopener" data-umami-event="offer-coffe-modal"><span data-i18n="modal.support">🍫 Support the project</span><span class="sr-only"> (opens in new tab)</span></a>
         <button class="modal-skip" id="modal-download" data-i18n="modal.skip">Just download</button>
       </div>
     </div>
