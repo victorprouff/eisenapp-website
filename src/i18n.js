@@ -180,17 +180,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = document.getElementById("modal-close");
   const modalDownload = document.getElementById("modal-download");
   let pendingUrl = null;
+  let lastFocused = null;
+
+  function getFocusable() {
+    return Array.from(modal.querySelectorAll('a[href], button:not([disabled])'));
+  }
+
+  function trapFocus(e) {
+    if (e.key !== "Tab") return;
+    const focusable = getFocusable();
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
 
   function openModal(url) {
     pendingUrl = url;
+    lastFocused = document.activeElement;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
+    modal.addEventListener("keydown", trapFocus);
+    modalClose.focus();
   }
 
   function closeModal() {
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
+    modal.removeEventListener("keydown", trapFocus);
     pendingUrl = null;
+    if (lastFocused) lastFocused.focus();
   }
 
   document.querySelectorAll(".platform-card").forEach((card) => {
