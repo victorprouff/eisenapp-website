@@ -7,6 +7,11 @@
   <title>EisenApp — Eisenhower Matrix Task Manager</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="canonical" href="https://eisenapp.victorprouff.fr" />
+  <link rel="alternate" hreflang="x-default" href="https://eisenapp.victorprouff.fr" />
+  <link rel="alternate" hreflang="en" href="https://eisenapp.victorprouff.fr" />
+  <link rel="alternate" hreflang="fr" href="https://eisenapp.victorprouff.fr" />
+  <link rel="alternate" hreflang="es" href="https://eisenapp.victorprouff.fr" />
+  <link rel="alternate" hreflang="de" href="https://eisenapp.victorprouff.fr" />
   <meta name="color-scheme" content="light dark" />
 
   <!-- Open Graph -->
@@ -30,6 +35,15 @@
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'dark' || (!saved && prefersDark)) {
         document.documentElement.setAttribute('data-theme', 'dark');
+      }
+
+      var langs = ['en', 'fr', 'es', 'de'];
+      var savedLang = localStorage.getItem('eisenapp-lang');
+      if (savedLang && langs.indexOf(savedLang) !== -1) {
+        document.documentElement.lang = savedLang;
+      } else {
+        var browser = (navigator.language || 'en').slice(0, 2).toLowerCase();
+        if (langs.indexOf(browser) !== -1) document.documentElement.lang = browser;
       }
     })();
   </script>
@@ -99,7 +113,7 @@
       
       <!-- App preview -->
       <div class="app-mockup">
-        <img src="illustration_light.webp" data-light="illustration_light.webp" data-dark="illustration_dark.webp" alt="EisenApp demo" class="app-gif theme-img" />
+        <img src="illustration_light.webp" data-light="illustration_light.webp" data-dark="illustration_dark.webp" alt="EisenApp showing the Eisenhower Matrix with tasks sorted across four quadrants and a prioritized list" class="app-gif theme-img" />
       </div>
     </div>
   </section>
@@ -156,16 +170,16 @@
       <div class="carousel">
         <div class="carousel-track">
           <div class="carousel-slide active">
-            <img src="illustration_light.webp" data-light="illustration_light.webp" data-dark="illustration_dark.webp" alt="EisenApp demo" class="theme-img" />
+            <img src="illustration_light.webp" data-light="illustration_light.webp" data-dark="illustration_dark.webp" alt="EisenApp — Eisenhower Matrix view with tasks in four quadrants (Do First, Schedule, Delegate, Eliminate) and a prioritized list on the right" class="theme-img" />
           </div>
           <div class="carousel-slide">
-            <img src="illustration_light_2.webp" data-light="illustration_light_2.webp" data-dark="illustration_dark_2.webp" alt="EisenApp demo" class="theme-img" />
+            <img src="illustration_light_2.webp" data-light="illustration_light_2.webp" data-dark="illustration_dark_2.webp" alt="EisenApp — Matrix view with completed tasks hidden, showing only active tasks across the four quadrants" class="theme-img" />
           </div>
           <div class="carousel-slide">
-            <img src="illustration_light_3.webp" data-light="illustration_light_3.webp" data-dark="illustration_dark_3.webp" alt="EisenApp demo" class="theme-img" />
+            <img src="illustration_light_3.webp" data-light="illustration_light_3.webp" data-dark="illustration_dark_3.webp" alt="EisenApp — Settings panel, General tab: language selection, custom labels, and compact display mode" class="theme-img" />
           </div>
           <div class="carousel-slide">
-            <img src="illustration_light_4.webp" data-light="illustration_light_4.webp" data-dark="illustration_dark_4.webp" alt="EisenApp demo" class="theme-img" />
+            <img src="illustration_light_4.webp" data-light="illustration_light_4.webp" data-dark="illustration_dark_4.webp" alt="EisenApp — Settings panel, Quadrants tab: customizable names and colors for each of the four matrix quadrants" class="theme-img" />
           </div>
         </div>
         <button class="carousel-btn carousel-prev" aria-label="Previous">&#8249;</button>
